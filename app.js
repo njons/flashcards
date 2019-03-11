@@ -1,7 +1,11 @@
 // require the express module and assign it to a variable called express
 const express = require("express");
+
 // the express function returns an express application, assign it a variable called app
 const app = express();
+
+// SET THE VIEW ENGINE TO PUG (if you nest the app.js file you will need to point it to the node_modules)
+app.set("view engine", "pug");
 
 // ROUTES OF THE EXPRESS SERVER
 // home route
