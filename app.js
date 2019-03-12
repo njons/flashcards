@@ -2,6 +2,8 @@
 const express = require("express");
 //require body parser to be able to pass data to the server
 const bodyParser = require("body-parser");
+// require cookie parser to be able read data from the cookie
+const cookieParser = require("cookie-parser");
 // the express function returns an express application, assign it a variable called app
 const app = express();
 
@@ -10,7 +12,7 @@ app.set("view engine", "pug");
 
 // USE MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(cookieParser());
 // ROUTES OF THE EXPRESS SERVER
 // home route, renders the template file named index
 app.get("/", (req, res) => {
@@ -18,10 +20,12 @@ app.get("/", (req, res) => {
 });
 // hello route
 app.get("/hello", (req, res) => {
-  res.render("hello");
+  res.render("hello", { name: req.cookies.username });
 });
 app.post("/hello", (req, res) => {
   // console.dir(req.body);
+  res.cookie("username", req.body.username);
+
   res.render("hello", { name: req.body.username });
 });
 
