@@ -12,9 +12,16 @@ app.set("view engine", "pug");
 app.get("/", (req, res) => {
   res.render("index");
 });
-// hello route
+// hello route, for testing
 app.get("/hello", (req, res) => {
   res.send("<h1>Welcome!</h1></br><p>Hello User!</p>");
+});
+// card route for showing cards
+app.get("/cards", (req, res) => {
+  res.render("card", {
+    prompt: "This is a question",
+    hint: "this is a clever hint"
+  });
 });
 
 // START SERVER: set up the server with the .listen() method by giving it a port number
