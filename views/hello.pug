@@ -1,0 +1,8 @@
+extends layout.pug
+block content
+  section#content
+    h2 Welcome, student! 
+    form(action="/hello", method="POST")
+      label Please enter your name to sign in
+        input(type="text", name="username") 
+      button(type="submit") login
