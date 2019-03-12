@@ -8,9 +8,9 @@ const app = express();
 app.set("view engine", "pug");
 
 // ROUTES OF THE EXPRESS SERVER
-// home route
+// home route, renders the template file named index
 app.get("/", (req, res) => {
-  res.send("Hello world!");
+  res.render("index");
 });
 // hello route
 app.get("/hello", (req, res) => {
