@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
 app.get("/hello", (req, res) => {
   const name = req.cookies.username;
   if (name) {
-    res.redirect("index", { name });
+    res.redirect("/", { name });
   }
   res.render("hello");
 });
@@ -43,6 +43,12 @@ app.get("/cards", (req, res) => {
     prompt: "This is a question",
     hint: "this is a clever hint"
   });
+});
+
+// logout route: GET
+app.post("/logout", (req, res) => {
+  res.clearCookie("username");
+  res.redirect("/");
 });
 
 // START SERVER: set up the server with the .listen() method by giving it a port number
