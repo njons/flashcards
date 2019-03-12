@@ -13,23 +13,31 @@ app.set("view engine", "pug");
 // USE MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 // ROUTES OF THE EXPRESS SERVER
 // home route, renders the template file named index
 app.get("/", (req, res) => {
-  res.render("index");
+  const name = req.cookies.username;
+  if (name) {
+    res.render("index", { name });
+  }
+  res.redirect("/hello");
 });
-// hello route
+
+// hello route: GET, POST
 app.get("/hello", (req, res) => {
-  res.render("hello", { name: req.cookies.username });
+  const name = req.cookies.username;
+  if (name) {
+    res.redirect("index", { name });
+  }
+  res.render("hello");
 });
 app.post("/hello", (req, res) => {
-  // console.dir(req.body);
   res.cookie("username", req.body.username);
-
-  res.render("hello", { name: req.body.username });
+  res.redirect("/");
 });
 
-// card route for showing cards
+// cards route: GET
 app.get("/cards", (req, res) => {
   res.render("card", {
     prompt: "This is a question",
