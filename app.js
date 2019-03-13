@@ -13,6 +13,12 @@ app.set("view engine", "pug");
 // USE MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// custom middleware creating specific error objects
+// app.use((req, res, next) => {
+//   const err = new Error("oh no!");
+//   err.status = 500;
+//   next(err);
+// });
 
 // ROUTES OF THE EXPRESS SERVER
 // home route, renders the template file named index
@@ -49,6 +55,19 @@ app.get("/cards", (req, res) => {
 app.post("/logout", (req, res) => {
   res.clearCookie("username");
   res.redirect("/");
+});
+
+// ERROR HANDLING
+app.use((req, res, next) => {
+  const err = new Error("file not found");
+  err.status = 404;
+  next(err);
+});
+
+app.use((err, req, res, next) => {
+  res.locals.error = err;
+  res.status(err.status);
+  res.render("error", err);
 });
 
 // START SERVER: set up the server with the .listen() method by giving it a port number
