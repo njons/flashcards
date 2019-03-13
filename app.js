@@ -13,24 +13,20 @@ app.set("view engine", "pug");
 // USE MIDDLEWARE
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use("/static", express.static("public"));
 
 // REQUIRE ROUTES
 const mainRoutes = require("./routes");
 const cardRoutes = require("./routes/cards");
 app.use(mainRoutes);
 app.use("/cards", cardRoutes);
+
 // ERROR HANDLING
 app.use((req, res, next) => {
   const err = new Error("file not found");
   err.status = 404;
   next(err);
 });
-// app.use((err, req, res, next) => {
-//   res.locals.error = err;
-//   res.status(err.status);
-//   res.render("error", err);
-// });
-
 app.use((err, req, res, next) => {
   res.locals.error = err;
   if (err.status >= 100 && err.status < 600) res.status(err.status);

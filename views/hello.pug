@@ -1,7 +1,7 @@
-extends layout.pug
-block content
-  section#content
-      form(action="/hello", method="POST")
-        label Please enter your name to sign in
-          input(type="text", name="username", autocomplete="off", autofocus="on", required) 
-        button(type="submit") login
+extends app.pug
+
+block intro
+  form.namecard-form(action="/hello", method="POST")
+    label.namecard-prompt Please enter your name to sign in
+      input.namecard-name(type="text", name="username", autocomplete="off", autofocus="on", required) 
+    button.namecard-submit(type="submit") Login

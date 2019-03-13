@@ -1,0 +1,383 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+/* Flash Card Styles */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #edead9;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  text-align: center;
+  color: #d64226;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+header img {
+  width: 100%;
+  max-width: 350px;
+  padding-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+input {
+  font-size: 1em;
+  padding: 0 5px;
+  border: none;
+  outline: none;
+  color: #d64226;
+  font-family: "Montserrat", sans-serif;
+}
+
+section {
+  max-width: 60vw;
+}
+
+/* Log In */
+.namecard {
+  color: #707c86;
+  width: 100%;
+  background-color: #edead9;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+.namecard-login {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  padding: 30px 10px;
+}
+
+.namecard-greeting {
+  font-size: 26px;
+  font-weight: 400;
+}
+
+.namecard-form {
+  padding-top: 15px;
+}
+
+.namecard-prompt {
+  font-size: 26px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+}
+
+.namecard-name {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.namecard-submit {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #d64226;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  margin-top: 50px;
+  width: 100%;
+  color: white;
+}
+
+.namecard-submit:hover {
+  background-color: white;
+  color: #d64226;
+  cursor: pointer;
+}
+
+.namecard-exit button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.namecard-exit button:hover {
+  cursor: pointer;
+}
+
+/* Flash Cards */
+.flashcards {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card-header {
+  background-color: #d64226;
+  height: 100px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card {
+  background-color: white;
+  color: #d64226;
+  display: flex;
+  flex-direction: column;
+}
+
+#content {
+  padding: 30px 20px;
+  font-size: 2em;
+  font-weight: 400;
+}
+
+.hint {
+  padding: 20px 0;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.card-next-wrap,
+.card-next-anchor {
+  display: flex;
+  width: 100%;
+}
+.card-next-anchor {
+  justify-content: flex-end;
+}
+
+.card-next {
+  height: 24px;
+  padding: 0 15px 15px 0;
+}
+
+.card-nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: #d64226;
+}
+
+.card-flip-anchor {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 50%;
+  height: 65px;
+}
+
+.card-flip {
+  height: 45px;
+  width: 50px;
+}
+
+/* 404 Error */
+
+.desk {
+  width: 80%;
+  color: #727c85;
+  margin: auto;
+  text-align: center;
+}
+
+.desk h1 {
+  font-weight: 400;
+}
+
+.desk-items {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.paper {
+  text-align: left;
+  color: #34393d;
+  height: 500px;
+  background-color: #f8f8f8;
+  background-size: 100% 2.5em;
+  background-image: linear-gradient(
+    rgba(234, 236, 211, 1) 0.1em,
+    transparent 0.2em
+  );
+  border-left: 0.2em solid rgba(216, 64, 38, 0.5);
+  padding-left: 20px;
+  margin-top: 70px;
+  overflow: scroll;
+}
+
+.paper pre {
+  font-size: 1em;
+  line-height: 3.15em;
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  margin-top: 0;
+}
+
+.tear {
+  background-image: url("../img/tear.svg");
+  background-repeat: repeat-x;
+  width: 100%;
+  height: 24px;
+}

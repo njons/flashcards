@@ -1,12 +1,9 @@
 doctype html
 html(lang="en")
   head
-    title Flash cards
+    title Flash Cards
+    link(rel="stylesheet", href="/static/style/style.css")
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:400,700")
   body
     include includes/header.pug
-    if (name)
-      h2 Welcome, #{name}! 
-      form(action="/logout" method="POST")
-        button(type="submit") Logout
-    block content 
-    include includes/footer.pug
+    block main
