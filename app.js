@@ -25,10 +25,17 @@ app.use((req, res, next) => {
   err.status = 404;
   next(err);
 });
+// app.use((err, req, res, next) => {
+//   res.locals.error = err;
+//   res.status(err.status);
+//   res.render("error", err);
+// });
+
 app.use((err, req, res, next) => {
   res.locals.error = err;
-  res.status(err.status);
-  res.render("error", err);
+  if (err.status >= 100 && err.status < 600) res.status(err.status);
+  else res.status(500);
+  res.render("error");
 });
 
 // START SERVER: set up the server with the .listen() method by giving it a port number
